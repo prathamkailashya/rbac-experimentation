@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+# Add the project root to sys.path so both `import app...` (in-memory version)
+# and `import sql_version...` (SQLAlchemy version) resolve with a bare `pytest`.
+pythonpath = ["."]
+testpaths = ["tests", "sql_version/tests", "advanced/tests"]

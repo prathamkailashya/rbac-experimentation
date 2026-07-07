@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RBAC Service</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>RBAC Service</h1>
+      <p>Role-Based Access Control &mdash; demo UI</p>
+    </header>
+
+    <main>
+      <div id="app-message" class="message" hidden></div>
+
+      <section class="card">
+        <h2>Permission Checker</h2>
+        <div class="checker">
+          <label>
+            User
+            <select id="check-user"></select>
+          </label>
+          <label>
+            Resource
+            <select id="check-resource"></select>
+          </label>
+          <label>
+            Action
+            <select id="check-action"></select>
+          </label>
+          <button id="check-btn" type="button">Check Permission</button>
+        </div>
+        <p id="check-result" class="result"></p>
+      </section>
+
+      <div class="columns">
+        <section class="card">
+          <h2>Users</h2>
+          <p class="hint">Assign or remove roles, or delete a user.</p>
+          <ul id="users-list" class="list"></ul>
+        </section>
+
+        <section class="card">
+          <h2>Roles</h2>
+          <p class="hint">Add or remove permissions, or delete a role.</p>
+          <ul id="roles-list" class="list"></ul>
+        </section>
+      </div>
+
+      <div class="columns">
+        <section class="card">
+          <h2>Create User</h2>
+          <form id="create-user-form">
+            <input type="text" id="new-user-name" placeholder="User name" required />
+            <p class="hint">Assign roles:</p>
+            <div id="role-checkboxes" class="checkboxes"></div>
+            <button type="submit">Create User</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <h2>Create Role</h2>
+          <form id="create-role-form">
+            <input type="text" id="new-role-name" placeholder="Role name" required />
+            <input type="text" id="new-role-resource" placeholder="Resource (optional, e.g. reports)" />
+            <select id="new-role-action">
+              <option value="read">read</option>
+              <option value="write">write</option>
+            </select>
+            <button type="submit">Create Role</button>
+          </form>
+          <p class="hint">Creates a role with one optional starting permission.</p>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
